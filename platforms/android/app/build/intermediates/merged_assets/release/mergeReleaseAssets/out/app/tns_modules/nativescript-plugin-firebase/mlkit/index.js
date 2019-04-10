@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var textrecognition = require("./textrecognition");
+exports.textrecognition = textrecognition;
+var barcodescanning = require("./barcodescanning");
+exports.barcodescanning = barcodescanning;
+var facedetection = require("./facedetection");
+exports.facedetection = facedetection;
+var imagelabeling = require("./imagelabeling");
+exports.imagelabeling = imagelabeling;
+var landmarkrecognition = require("./landmarkrecognition");
+exports.landmarkrecognition = landmarkrecognition;
+var custommodel = require("./custommodel");
+exports.custommodel = custommodel;
+var naturallanguageidentification = require("./naturallanguageidentification");
+exports.naturallanguageidentification = naturallanguageidentification;

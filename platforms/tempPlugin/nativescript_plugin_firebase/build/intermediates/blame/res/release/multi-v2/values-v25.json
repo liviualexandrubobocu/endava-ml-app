@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\values-v25\\values-v25.xml",
+            "outputFile": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v25\\values-v25.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Liviu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\d966b8c1548026fc8205625db48cc80a\\res\\values-v25\\values-v25.xml",
+                    "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5fa4a2bc44bab08af3d9011cf775db3c\\res\\values-v25\\values-v25.xml",
                     "from": {
                         "startLines": "2,3,4,6",
                         "startColumns": "4,4,4,4",
@@ -17,10 +17,10 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v25\\values-v25.xml",
+            "outputFile": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\values-v25\\values-v25.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Liviu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\d966b8c1548026fc8205625db48cc80a\\res\\values-v25\\values-v25.xml",
+                    "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5fa4a2bc44bab08af3d9011cf775db3c\\res\\values-v25\\values-v25.xml",
                     "from": {
                         "startLines": "2,3,4,6",
                         "startColumns": "4,4,4,4",

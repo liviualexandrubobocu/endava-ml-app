@@ -30,23 +30,45 @@ export class MLKitComponent {
   pickedImage: ImageSource;
   pickedImages: ImageSource[] = [];
 
+  public TEXT_RECOGNITION_DEVICE: string = "Text recognition (on device)";
+  public TEXT_RECOGNITION_CLOUD: string = "Text recognition (cloud)";
+  public BARCODE_SCANNING_DEVICE: string = "Barcode scanning (on device)";
+  public FACE_DETECTION_DEVICE: string = "Face detection (on device)";
+  public IMAGE_LABELLING_DEVICE: string = "Image labeling (on device)";
+  public IMAGE_LABELLING_CLOUD: string = "Image labeling (cloud)";
+  public LANDMARK_RECOGNITION_CLOUD: string = "Landmark recognition (cloud)";
+  public CUSTOM_MODEL: string = "Custom model";
+
+  public TEXT_RECOGNITION_FEATURE: string = "Text recognition";
+  public BARCODE_SCANNING_FEATURE: string = "Barcode scanning";
+  public FACE_DETECTION_FEATURE: string = "Face detection";
+  public IMAGE_LABELLING_FEATURE: string = "Image labelling";
+  public CUSTOM_MODEL_FEATURE: string = "Custom model";
+
+  public TEXT_RECOGNITION_ROUTE: string = "/tabs/mlkit/textrecognition";
+  public BARCODE_SCANNING_ROUTE: string = "/tabs/mlkit/barcodescanning";
+  public FACE_DETECTION_ROUTE: string = "/tabs/mlkit/facedetection";
+  public IMAGE_LABELLING_ROUTE: string = "/tabs/mlkit/imagelabeling";
+  public CUSTOM_MODEL_ROUTE: string = "/tabs/mlkit/custommodel";
+
+
   private mlkitFeatures: Array<string> = [
-    "Text recognition (on device)",
-    "Text recognition (cloud)",
-    "Barcode scanning (on device)",
-    "Face detection (on device)",
-    "Image labeling (on device)",
-    "Image labeling (cloud)",
-    "Custom model",
-    "Landmark recognition (cloud)"
+    this.TEXT_RECOGNITION_DEVICE,
+    this.TEXT_RECOGNITION_CLOUD,
+    this.BARCODE_SCANNING_DEVICE,
+    this.FACE_DETECTION_DEVICE,
+    this.IMAGE_LABELLING_DEVICE,
+    this.IMAGE_LABELLING_CLOUD,
+    this.LANDMARK_RECOGNITION_CLOUD,
+    this.CUSTOM_MODEL
   ];
 
   private mlkitOnDeviceFeatures: Array<string> = [
-    "Text recognition",
-    "Barcode scanning",
-    "Face detection",
-    "Image labeling",
-    "Custom model"
+    this.TEXT_RECOGNITION_FEATURE,
+    this.BARCODE_SCANNING_FEATURE,
+    this.FACE_DETECTION_FEATURE,
+    this.IMAGE_LABELLING_FEATURE,
+    this.CUSTOM_MODEL_FEATURE
   ];
 
   constructor(private routerExtensions: RouterExtensions,
@@ -59,21 +81,27 @@ export class MLKitComponent {
       "Cancel",
       this.mlkitOnDeviceFeatures
     ).then((pickedItem: string) => {
-      let to;
-      if (pickedItem === "Text recognition") {
-        to = "/tabs/mlkit/textrecognition";
-      } else if (pickedItem === "Barcode scanning") {
-        to = "/tabs/mlkit/barcodescanning";
-      } else if (pickedItem === "Face detection") {
-        to = "/tabs/mlkit/facedetection";
-      } else if (pickedItem === "Image labeling") {
-        to = "/tabs/mlkit/imagelabeling";
-      } else if (pickedItem === "Custom model") {
-        to = "/tabs/mlkit/custommodel";
+      let route;
+      switch (pickedItem) {
+        case this.TEXT_RECOGNITION_FEATURE:
+          route = this.TEXT_RECOGNITION_ROUTE;
+          break;
+        case this.BARCODE_SCANNING_FEATURE:
+          route = this.BARCODE_SCANNING_ROUTE;
+          break;
+        case this.FACE_DETECTION_FEATURE:
+          route = this.FACE_DETECTION_ROUTE;
+          break;
+        case this.IMAGE_LABELLING_FEATURE:
+          route = this.IMAGE_LABELLING_ROUTE;
+          break;
+        case this.CUSTOM_MODEL_FEATURE:
+          route = this.CUSTOM_MODEL_ROUTE;
+          break;
       }
 
-      if (to !== undefined) {
-        this.routerExtensions.navigate([to],
+      if (route !== undefined) {
+        this.routerExtensions.navigate([route],
           {
             animated: true,
             transition: {
@@ -120,7 +148,6 @@ export class MLKitComponent {
     }).then(imageAsset => {
       new ImageSource().fromAsset(imageAsset).then(imageSource => {
         this.pickedImage = imageSource;
-        // give the user some time to to see the picture
         setTimeout(() => this.selectMLKitFeature(imageSource), 500);
       });
     });
@@ -159,7 +186,6 @@ export class MLKitComponent {
           this.zone.run(() => {
             this.pickedImage = imageSource;
           });
-          // give the user some time to to see the picture
           setTimeout(() => this.selectMLKitFeature(imageSource), 500);
         });
       })
@@ -176,27 +202,37 @@ export class MLKitComponent {
 
   private selectMLKitFeature(imageSource: ImageSource): void {
     action(
-      "Use which ML Kit feature?",
+      "What Firebase ML Kit feature do you want to use?",
       "Cancel",
       this.mlkitFeatures
     ).then((pickedItem: string) => {
-      let pickedItemIndex = this.mlkitFeatures.indexOf(pickedItem);
-      if (pickedItem === "Text recognition (on device)") {
-        this.recognizeTextOnDevice(imageSource);
-      } else if (pickedItem === "Text recognition (cloud)") {
-        this.recognizeTextCloud(imageSource);
-      } else if (pickedItem === "Barcode scanning (on device)") {
-        this.scanBarcodeOnDevice(imageSource);
-      } else if (pickedItem === "Face detection (on device)") {
-        this.detectFacesOnDevice(imageSource);
-      } else if (pickedItem === "Image labeling (on device)") {
-        this.labelImageOnDevice(imageSource);
-      } else if (pickedItem === "Image labeling (cloud)") {
-        this.labelImageCloud(imageSource);
-      } else if (pickedItem === "Landmark recognition (cloud)") {
-        this.recognizeLandmarkCloud(imageSource);
-      } else if (pickedItem === "Custom model") {
-        this.customModel(imageSource);
+      switch (pickedItem) {
+        case this.TEXT_RECOGNITION_DEVICE:
+          this.recognizeTextOnDevice(imageSource);
+          break;
+        case this.TEXT_RECOGNITION_CLOUD:
+          this.recognizeTextCloud(imageSource);
+          break;
+        case this.BARCODE_SCANNING_DEVICE:
+          this.scanBarcodeOnDevice(imageSource);
+          break;
+        case this.FACE_DETECTION_DEVICE:
+          this.detectFacesOnDevice(imageSource);
+          break;
+        case this.IMAGE_LABELLING_DEVICE:
+          this.labelImageOnDevice(imageSource);
+          break;
+        case this.IMAGE_LABELLING_CLOUD:
+          this.labelImageCloud(imageSource);
+          break;
+        case this.LANDMARK_RECOGNITION_CLOUD:
+          this.recognizeLandmarkCloud(imageSource);
+          break;
+        case this.CUSTOM_MODEL:
+          this.customModel(imageSource);
+          break;
+        default:
+          this.customModel(imageSource);
       }
     });
   }
@@ -228,7 +264,14 @@ export class MLKitComponent {
           okButtonText: "OK"
         });
       })
-      .catch(errorMessage => console.log("ML Kit error: " + errorMessage));
+      .catch((errorMessage) => {
+        alert({
+          title: `Result`,
+          message: 'ML Kit Failure: ' + errorMessage,
+          okButtonText: "OK"
+        });
+        console.log('ML Kit Failure: ' + errorMessage);
+      });
   }
 
   private recognizeLandmarkCloud(imageSource: ImageSource): void {
@@ -249,27 +292,12 @@ export class MLKitComponent {
   private customModel(imageSource: ImageSource): void {
     firebase.mlkit.custommodel.useCustomModel({
       image: imageSource,
-
-      // note that only local quant models work currently (so not 'float' models, and not loaded from the cloud)
-
-      // cloudModelName: "~/mobilenet_quant_v2_1_0_299",
-      // cloudModelName: "~/inception_v3_quant",
-
-      // note that there's an issue with this model (making the app crash): "ValueError: Model provided has model identifier 'Mobi', should be 'TFL3'" (reported by https://github.com/EddyVerbruggen/ns-mlkit-tflite-curated/blob/master/scripts/get_model_details.py)
-      // localModelFile: "~/custommodel/nutella/nutella_quantize.tflite",
-      // labelsFile: "~/custommodel/nutella/nutella_labels.txt",
-
-      // localModelFile: "~/custommodel/mobilenet/mobilenet_quant_v2_1.0_299.tflite",
-      // labelsFile: "~/custommodel/mobilenet/mobilenet_labels.txt",
-
       localModelFile: "~/custommodel/inception/inception_v3_quant.tflite",
       labelsFile: "~/custommodel/inception/inception_labels.txt",
-
       maxResults: 5,
       modelInput: [{
-        // shape: [1, 224, 224, 3], // flowers / nutella
         shape: [1, 299, 299, 3], // others
-        type: "QUANT" // the only currently supported type of model
+        type: "QUANT"
       }],
     }).then(
       (result: MLKitCustomModelResult) => {
@@ -330,23 +358,6 @@ export class MLKitComponent {
       .catch(errorMessage => console.log("ML Kit error: " + errorMessage));
   }
 
-  /*
-  private customModelOnDevice(imageSource: ImageSource): void {
-    console.log("customModelOnDevice");
-    firebase.mlkit.custommodel.useCustomModel({
-      image: imageSource
-    }).then(
-        (result: MLKitCustomModelResult) => {
-          alert({
-            title: `Result`,
-            message: JSON.stringify(result.result),
-            okButtonText: "OK"
-          });
-        })
-        .catch(errorMessage => console.log("ML Kit error: " + errorMessage));
-  }
-  */
-
   private labelImageCloud(imageSource: ImageSource): void {
     firebase.mlkit.imagelabeling.labelImageCloud({
       image: imageSource,
@@ -356,14 +367,18 @@ export class MLKitComponent {
       (result: MLKitImageLabelingCloudResult) => {
         alert({
           title: `Result`,
-          message: JSON.stringify(result.labels),
+          message: 'You are looking at a: ' + result.labels[0].text,
           okButtonText: "OK"
         });
       })
-      .catch(errorMessage => console.log("ML Kit error: " + errorMessage));
+      .catch((errorMessage) => {
+        alert({
+          title: `Result`,
+          message: 'ML Kit Failure: ' + errorMessage,
+          okButtonText: "OK"
+        });
+        console.log('ML Kit Failure: ' + errorMessage);
+      });
   }
 
-  // onScanResultImage(event): void {
-  //   this.scannedImage = event.value;
-  // }
 }

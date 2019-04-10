@@ -1,10 +1,10 @@
-#Wed Apr 10 10:02:23 EEST 2019
+#Wed Apr 10 23:48:19 EEST 2019
 path.2=classes3.dex
 path.1=classes2.dex
 path.0=classes.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
-base.2=C\:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-base.1=C\:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
-base.0=C\:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+base.2=C\:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+base.1=C\:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+base.0=C\:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0

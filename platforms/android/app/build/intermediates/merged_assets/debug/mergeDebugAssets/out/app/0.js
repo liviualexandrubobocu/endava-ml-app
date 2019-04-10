@@ -207,14 +207,14 @@ var ImageLabelingComponent = /** @class */ (function (_super) {
 /***/ "./tabs/mlkit/mlkit.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".button {\r\n    margin:0 0 15px 0;\r\n    background:#de411b;\r\n    color:#fff;\r\n}"
+module.exports = ".button {\r\n    margin:0 0 15px 0;\r\n    background:#de411b;\r\n    color:#fff;\r\n}\r\nDialog{\r\n    color:red;\r\n    font-size:24;\r\n    }"
 
 /***/ }),
 
 /***/ "./tabs/mlkit/mlkit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<GridLayout rows=\"auto, auto, *, auto\" class=\"tab-content\">\r\n\r\n  <FlexboxLayout row=\"1\" flexDirection=\"row\" justifyContent=\"space-around\">\r\n    <Button text=\"Images\" textWrap=\"true\" (tap)=\"fromAppFolder()\" class=\"button\"></Button>\r\n    <Button text=\"Cam roll\" textWrap=\"true\" (tap)=\"fromCameraRoll()\" class=\"button\"></Button>\r\n    <!-- the image may require rotation on Android, and permission may be required - not feeling like exposing this for now -->\r\n    <iOS>\r\n      <Button text=\"Cam pic\" textWrap=\"true\" (tap)=\"fromCameraPicture()\" class=\"button\"></Button>\r\n    </iOS>\r\n    <Button text=\"Cam feed\" textWrap=\"true\" (tap)=\"fromCameraFeed()\" class=\"button\"></Button>\r\n  </FlexboxLayout>\r\n  <DockLayout>\r\n      <Image *ngFor=\"let pickedImage of pickedImages;\" [width]=\"100\" [src]=\"pickedImage\" (tap)=\"reusePickedImage(pickedImage)\"></Image>\r\n  </DockLayout>\r\n\r\n</GridLayout>\r\n"
+module.exports = "<GridLayout rows=\"auto, auto, *, auto\" class=\"tab-content\">\r\n\r\n  <FlexboxLayout row=\"1\" flexDirection=\"row\" justifyContent=\"space-around\">\r\n    <Button text=\"Images\" textWrap=\"true\" (tap)=\"fromAppFolder()\" class=\"button\"></Button>\r\n    <Button text=\"Cam roll\" textWrap=\"true\" (tap)=\"fromCameraRoll()\" class=\"button\"></Button>\r\n    <!-- the image may require rotation on Android, and permission may be required - not feeling like exposing this for now -->\r\n    <iOS>\r\n      <Button text=\"Cam pic\" textWrap=\"true\" (tap)=\"fromCameraPicture()\" class=\"button\"></Button>\r\n    </iOS>\r\n    <Button text=\"Cam feed\" textWrap=\"true\" (tap)=\"fromCameraFeed()\" class=\"button\"></Button>\r\n  </FlexboxLayout>\r\n  <Label marginTop=\"30\" fontSize=\"20\" row=\"2\" text=\"Select the image you want to classify\"></Label>\r\n  <FlexboxLayout row=\"2\" flexDirection=\"row\" justifyContent=\"space-around\" height=\"120\" top=\"0\">\r\n      <Image *ngFor=\"let pickedImage of pickedImages;\" borderWidth=\"2\" width=\"90\" height=\"100\" paddingLeft=\"10\" paddingRight=\"10\" borderColor=\"red\" borderRadius=\"10\" [colSpan]=\"2\" [src]=\"pickedImage\" (tap)=\"reusePickedImage(pickedImage)\"></Image>\r\n  </FlexboxLayout>\r\n\r\n</GridLayout>\r\n"
 
 /***/ }),
 
@@ -256,45 +256,76 @@ var MLKitComponent = /** @class */ (function () {
         this.routerExtensions = routerExtensions;
         this.zone = zone;
         this.pickedImages = [];
+        this.TEXT_RECOGNITION_DEVICE = "Text recognition (on device)";
+        this.TEXT_RECOGNITION_CLOUD = "Text recognition (cloud)";
+        this.BARCODE_SCANNING_DEVICE = "Barcode scanning (on device)";
+        this.FACE_DETECTION_DEVICE = "Face detection (on device)";
+        this.IMAGE_LABELLING_DEVICE = "Image labeling (on device)";
+        this.IMAGE_LABELLING_CLOUD = "Image labeling (cloud)";
+        this.LANDMARK_RECOGNITION_CLOUD = "Landmark recognition (cloud)";
+        this.CUSTOM_MODEL = "Custom model";
+        this.TEXT_RECOGNITION_FEATURE = "Text recognition";
+        this.BARCODE_SCANNING_FEATURE = "Barcode scanning";
+        this.FACE_DETECTION_FEATURE = "Face detection";
+        this.IMAGE_LABELLING_FEATURE = "Image labelling";
+        this.CUSTOM_MODEL_FEATURE = "Custom model";
+        this.TEXT_RECOGNITION_ROUTE = "/tabs/mlkit/textrecognition";
+        this.BARCODE_SCANNING_ROUTE = "/tabs/mlkit/barcodescanning";
+        this.FACE_DETECTION_ROUTE = "/tabs/mlkit/facedetection";
+        this.IMAGE_LABELLING_ROUTE = "/tabs/mlkit/imagelabeling";
+        this.CUSTOM_MODEL_ROUTE = "/tabs/mlkit/custommodel";
         this.mlkitFeatures = [
-            "Text recognition (on device)",
-            "Text recognition (cloud)",
-            "Barcode scanning (on device)",
-            "Face detection (on device)",
-            "Image labeling (on device)",
-            "Image labeling (cloud)",
-            "Custom model",
-            "Landmark recognition (cloud)"
+            this.TEXT_RECOGNITION_DEVICE,
+            this.TEXT_RECOGNITION_CLOUD,
+            this.BARCODE_SCANNING_DEVICE,
+            this.FACE_DETECTION_DEVICE,
+            this.IMAGE_LABELLING_DEVICE,
+            this.IMAGE_LABELLING_CLOUD,
+            this.LANDMARK_RECOGNITION_CLOUD,
+            this.CUSTOM_MODEL
         ];
         this.mlkitOnDeviceFeatures = [
-            "Text recognition",
-            "Barcode scanning",
-            "Face detection",
-            "Image labeling",
-            "Custom model"
+            this.TEXT_RECOGNITION_FEATURE,
+            this.BARCODE_SCANNING_FEATURE,
+            this.FACE_DETECTION_FEATURE,
+            this.IMAGE_LABELLING_FEATURE,
+            this.CUSTOM_MODEL_FEATURE
         ];
     }
     MLKitComponent.prototype.fromCameraFeed = function () {
         var _this = this;
         Object(tns_core_modules_ui_dialogs__WEBPACK_IMPORTED_MODULE_8__["action"])("Test which on-device ML Kit feature?", "Cancel", this.mlkitOnDeviceFeatures).then(function (pickedItem) {
-            var to;
-            if (pickedItem === "Text recognition") {
-                to = "/tabs/mlkit/textrecognition";
+            var route;
+            switch (pickedItem) {
+                case _this.TEXT_RECOGNITION_FEATURE:
+                    route = _this.TEXT_RECOGNITION_ROUTE;
+                    break;
+                case _this.BARCODE_SCANNING_FEATURE:
+                    route = _this.BARCODE_SCANNING_ROUTE;
+                    break;
+                case _this.FACE_DETECTION_FEATURE:
+                    route = _this.FACE_DETECTION_ROUTE;
+                    break;
+                case _this.IMAGE_LABELLING_FEATURE:
+                    route = _this.IMAGE_LABELLING_ROUTE;
+                    break;
+                case _this.CUSTOM_MODEL_FEATURE:
+                    route = _this.CUSTOM_MODEL_ROUTE;
+                    break;
             }
-            else if (pickedItem === "Barcode scanning") {
-                to = "/tabs/mlkit/barcodescanning";
-            }
-            else if (pickedItem === "Face detection") {
-                to = "/tabs/mlkit/facedetection";
-            }
-            else if (pickedItem === "Image labeling") {
-                to = "/tabs/mlkit/imagelabeling";
-            }
-            else if (pickedItem === "Custom model") {
-                to = "/tabs/mlkit/custommodel";
-            }
-            if (to !== undefined) {
-                _this.routerExtensions.navigate([to], {
+            // if (pickedItem === this.TEXT_RECOGNITION_FEATURE) {
+            //   route = "/tabs/mlkit/textrecognition";
+            // } else if (pickedItem === this.BARCODE_SCANNING_FEATURE) {
+            //   route = "/tabs/mlkit/barcodescanning";
+            // } else if (pickedItem === this.FACE_DETECTION_FEATURE) {
+            //   route = "/tabs/mlkit/facedetection";
+            // } else if (pickedItem === this.IMAGE_LABELLING_FEATURE) {
+            //   route = "/tabs/mlkit/imagelabeling";
+            // } else if (pickedItem === this.CUSTOM_MODEL_FEATURE) {
+            //   route = "/tabs/mlkit/custommodel";
+            // }
+            if (route !== undefined) {
+                _this.routerExtensions.navigate([route], {
                     animated: true,
                     transition: {
                         name: "slide",
@@ -375,7 +406,6 @@ var MLKitComponent = /** @class */ (function () {
                 _this.zone.run(function () {
                     _this.pickedImage = imageSource;
                 });
-                // give the user some time to to see the picture
                 setTimeout(function () { return _this.selectMLKitFeature(imageSource); }, 500);
             });
         })
@@ -390,32 +420,51 @@ var MLKitComponent = /** @class */ (function () {
     };
     MLKitComponent.prototype.selectMLKitFeature = function (imageSource) {
         var _this = this;
-        Object(tns_core_modules_ui_dialogs__WEBPACK_IMPORTED_MODULE_8__["action"])("Use which ML Kit feature?", "Cancel", this.mlkitFeatures).then(function (pickedItem) {
-            var pickedItemIndex = _this.mlkitFeatures.indexOf(pickedItem);
-            if (pickedItem === "Text recognition (on device)") {
-                _this.recognizeTextOnDevice(imageSource);
+        Object(tns_core_modules_ui_dialogs__WEBPACK_IMPORTED_MODULE_8__["action"])("What Firebase ML Kit feature do you want to use?", "Cancel", this.mlkitFeatures).then(function (pickedItem) {
+            switch (pickedItem) {
+                case _this.TEXT_RECOGNITION_DEVICE:
+                    _this.recognizeTextOnDevice(imageSource);
+                    break;
+                case _this.TEXT_RECOGNITION_CLOUD:
+                    _this.recognizeTextCloud(imageSource);
+                    break;
+                case _this.BARCODE_SCANNING_DEVICE:
+                    _this.scanBarcodeOnDevice(imageSource);
+                    break;
+                case _this.FACE_DETECTION_DEVICE:
+                    _this.detectFacesOnDevice(imageSource);
+                    break;
+                case _this.IMAGE_LABELLING_DEVICE:
+                    _this.labelImageOnDevice(imageSource);
+                    break;
+                case _this.IMAGE_LABELLING_CLOUD:
+                    _this.labelImageCloud(imageSource);
+                    break;
+                case _this.LANDMARK_RECOGNITION_CLOUD:
+                    break;
+                case _this.CUSTOM_MODEL:
+                    _this.customModel(imageSource);
+                    break;
+                default:
+                    _this.customModel(imageSource);
             }
-            else if (pickedItem === "Text recognition (cloud)") {
-                _this.recognizeTextCloud(imageSource);
-            }
-            else if (pickedItem === "Barcode scanning (on device)") {
-                _this.scanBarcodeOnDevice(imageSource);
-            }
-            else if (pickedItem === "Face detection (on device)") {
-                _this.detectFacesOnDevice(imageSource);
-            }
-            else if (pickedItem === "Image labeling (on device)") {
-                _this.labelImageOnDevice(imageSource);
-            }
-            else if (pickedItem === "Image labeling (cloud)") {
-                _this.labelImageCloud(imageSource);
-            }
-            else if (pickedItem === "Landmark recognition (cloud)") {
-                _this.recognizeLandmarkCloud(imageSource);
-            }
-            else if (pickedItem === "Custom model") {
-                _this.customModel(imageSource);
-            }
+            // if (pickedItem === "Text recognition (on device)") {
+            //   this.recognizeTextOnDevice(imageSource);
+            // } else if (pickedItem === "Text recognition (cloud)") {
+            //   this.recognizeTextCloud(imageSource);
+            // } else if (pickedItem === "Barcode scanning (on device)") {
+            //   this.scanBarcodeOnDevice(imageSource);
+            // } else if (pickedItem === "Face detection (on device)") {
+            //   this.detectFacesOnDevice(imageSource);
+            // } else if (pickedItem === "Image labeling (on device)") {
+            //   this.labelImageOnDevice(imageSource);
+            // } else if (pickedItem === "Image labeling (cloud)") {
+            //   this.labelImageCloud(imageSource);
+            // } else if (pickedItem === "Landmark recognition (cloud)") {
+            //   this.recognizeLandmarkCloud(imageSource);
+            // } else if (pickedItem === "Custom model") {
+            //   this.customModel(imageSource);
+            // }
         });
     };
     MLKitComponent.prototype.recognizeTextOnDevice = function (imageSource) {
@@ -443,7 +492,14 @@ var MLKitComponent = /** @class */ (function () {
                 okButtonText: "OK"
             });
         })
-            .catch(function (errorMessage) { return console.log("ML Kit error: " + errorMessage); });
+            .catch(function (errorMessage) {
+            alert({
+                title: "Result",
+                message: 'ML Kit Failure: ' + errorMessage,
+                okButtonText: "OK"
+            });
+            console.log('ML Kit Failure: ' + errorMessage);
+        });
     };
     MLKitComponent.prototype.recognizeLandmarkCloud = function (imageSource) {
         firebase.mlkit.landmarkrecognition.recognizeLandmarksCloud({
@@ -461,21 +517,12 @@ var MLKitComponent = /** @class */ (function () {
     MLKitComponent.prototype.customModel = function (imageSource) {
         firebase.mlkit.custommodel.useCustomModel({
             image: imageSource,
-            // note that only local quant models work currently (so not 'float' models, and not loaded from the cloud)
-            // cloudModelName: "~/mobilenet_quant_v2_1_0_299",
-            // cloudModelName: "~/inception_v3_quant",
-            // note that there's an issue with this model (making the app crash): "ValueError: Model provided has model identifier 'Mobi', should be 'TFL3'" (reported by https://github.com/EddyVerbruggen/ns-mlkit-tflite-curated/blob/master/scripts/get_model_details.py)
-            // localModelFile: "~/custommodel/nutella/nutella_quantize.tflite",
-            // labelsFile: "~/custommodel/nutella/nutella_labels.txt",
-            // localModelFile: "~/custommodel/mobilenet/mobilenet_quant_v2_1.0_299.tflite",
-            // labelsFile: "~/custommodel/mobilenet/mobilenet_labels.txt",
             localModelFile: "~/custommodel/inception/inception_v3_quant.tflite",
             labelsFile: "~/custommodel/inception/inception_labels.txt",
             maxResults: 5,
             modelInput: [{
-                    // shape: [1, 224, 224, 3], // flowers / nutella
                     shape: [1, 299, 299, 3],
-                    type: "QUANT" // the only currently supported type of model
+                    type: "QUANT"
                 }],
         }).then(function (result) {
             alert({
@@ -528,22 +575,6 @@ var MLKitComponent = /** @class */ (function () {
         })
             .catch(function (errorMessage) { return console.log("ML Kit error: " + errorMessage); });
     };
-    /*
-    private customModelOnDevice(imageSource: ImageSource): void {
-      console.log("customModelOnDevice");
-      firebase.mlkit.custommodel.useCustomModel({
-        image: imageSource
-      }).then(
-          (result: MLKitCustomModelResult) => {
-            alert({
-              title: `Result`,
-              message: JSON.stringify(result.result),
-              okButtonText: "OK"
-            });
-          })
-          .catch(errorMessage => console.log("ML Kit error: " + errorMessage));
-    }
-    */
     MLKitComponent.prototype.labelImageCloud = function (imageSource) {
         firebase.mlkit.imagelabeling.labelImageCloud({
             image: imageSource,
@@ -552,11 +583,18 @@ var MLKitComponent = /** @class */ (function () {
         }).then(function (result) {
             alert({
                 title: "Result",
-                message: JSON.stringify(result.labels),
+                message: 'You are looking at a: ' + result.labels[0].text,
                 okButtonText: "OK"
             });
         })
-            .catch(function (errorMessage) { return console.log("ML Kit error: " + errorMessage); });
+            .catch(function (errorMessage) {
+            alert({
+                title: "Result",
+                message: 'ML Kit Failure: ' + errorMessage,
+                okButtonText: "OK"
+            });
+            console.log('ML Kit Failure: ' + errorMessage);
+        });
     };
     MLKitComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({

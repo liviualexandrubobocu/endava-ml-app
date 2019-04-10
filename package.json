@@ -1,7 +1,7 @@
 {
-  "description": "NativeScript Application",
+  "description": "Endava NativeScript ML Application",
   "license": "SEE LICENSE IN <your-license-filename>",
-  "readme": "NativeScript Application",
+  "readme": "Endava NativeScript ML Application",
   "repository": "<fill-your-repository-here>",
   "nativescript": {
     "id": "org.nativescript.firebasedemo.firestore",
@@ -14,11 +14,9 @@
   },
   "scripts": {
     "tsc": "tsc -skipLibCheck",
-    "package": "cd ./publish && pack.sh",
-    "preparedemo-ng": "npm run tsc && npm run package && cd ../endava-ng-ml && tns plugin add ../endava-ng-ml/firebase-plugin/nativescript-plugin-firebase-8.1.1.tgz && tns install",
-    "demo-ng.android": "npm run preparedemo-ng && cd ../endava-ng-ml && tns run android",
-    "demo-ng.android.build": "npm run preparedemo-ng && cd ../endava-ng-ml && tns build android",
-    "demo-ng.android.bundled": "npm run preparedemo-ng && cd ../endava-ng-ml && tns run android --bundle"
+    "ml-app.android": "tns run android",
+    "ml-app.android.build": "tns build android",
+    "ml-app.android.bundled": "tns run android --bundle"
   },
   "dependencies": {
     "@angular/animations": "~6.1.0",

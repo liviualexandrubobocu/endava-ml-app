@@ -1,34 +1,42 @@
 [
     {
-        "merged": "C:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
-        "source": "C:\\Users\\Liviu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\d966b8c1548026fc8205625db48cc80a\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+        "merged": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_list_divider_material.xml",
+        "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5fa4a2bc44bab08af3d9011cf775db3c\\res\\drawable-v21\\abc_list_divider_material.xml"
     },
     {
-        "merged": "C:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\notification_action_background.xml",
-        "source": "C:\\Users\\Liviu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\d966b8c1548026fc8205625db48cc80a\\res\\drawable-v21\\notification_action_background.xml"
+        "merged": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\avd_show_password.xml",
+        "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\7fae17a5e2c0f6a24340268d02225c49\\res\\drawable-v21\\avd_show_password.xml"
     },
     {
-        "merged": "C:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\avd_hide_password.xml",
-        "source": "C:\\Users\\Liviu\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\707f257d0e964697346ded35d53ded5c\\res\\drawable-v21\\avd_hide_password.xml"
+        "merged": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\4d3463d94fcd73810e96aef532e6f00b\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
-        "merged": "C:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\design_bottom_navigation_item_background.xml",
-        "source": "C:\\Users\\Liviu\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\707f257d0e964697346ded35d53ded5c\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
+        "merged": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\design_password_eye.xml",
+        "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\7fae17a5e2c0f6a24340268d02225c49\\res\\drawable-v21\\design_password_eye.xml"
     },
     {
-        "merged": "C:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\design_password_eye.xml",
-        "source": "C:\\Users\\Liviu\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\707f257d0e964697346ded35d53ded5c\\res\\drawable-v21\\design_password_eye.xml"
+        "merged": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_dialog_material_background.xml",
+        "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5fa4a2bc44bab08af3d9011cf775db3c\\res\\drawable-v21\\abc_dialog_material_background.xml"
     },
     {
-        "merged": "C:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\avd_show_password.xml",
-        "source": "C:\\Users\\Liviu\\.gradle\\caches\\transforms-1\\files-1.1\\design-25.3.1.aar\\707f257d0e964697346ded35d53ded5c\\res\\drawable-v21\\avd_show_password.xml"
+        "merged": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\7fae17a5e2c0f6a24340268d02225c49\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
     },
     {
-        "merged": "C:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_edit_text_material.xml",
-        "source": "C:\\Users\\Liviu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\d966b8c1548026fc8205625db48cc80a\\res\\drawable-v21\\abc_edit_text_material.xml"
+        "merged": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5fa4a2bc44bab08af3d9011cf775db3c\\res\\drawable-v21\\abc_btn_colored_material.xml"
     },
     {
-        "merged": "C:\\Users\\Liviu\\Desktop\\NativeScriptFirebaseML\\endava-ng-ml\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_btn_colored_material.xml",
-        "source": "C:\\Users\\Liviu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-25.3.1.aar\\d966b8c1548026fc8205625db48cc80a\\res\\drawable-v21\\abc_btn_colored_material.xml"
+        "merged": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\avd_hide_password.xml",
+        "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\7fae17a5e2c0f6a24340268d02225c49\\res\\drawable-v21\\avd_hide_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5fa4a2bc44bab08af3d9011cf775db3c\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\lbobocu\\Desktop\\TechFlow\\endava-ml-app\\platforms\\tempPlugin\\nativescript_plugin_firebase\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\lbobocu\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5fa4a2bc44bab08af3d9011cf775db3c\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
     }
 ]
