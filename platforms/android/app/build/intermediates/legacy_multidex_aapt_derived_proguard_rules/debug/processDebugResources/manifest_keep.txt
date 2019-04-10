@@ -1,0 +1,2 @@
+# Referenced at C:\Users\Liviu\Desktop\NativeScriptFirebaseML\endava-ng-ml\platforms\android\app\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:42
+-keep class com.tns.NativeScriptApplication { <init>(...); }

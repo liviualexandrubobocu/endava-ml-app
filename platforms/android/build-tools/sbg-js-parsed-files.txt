@@ -1,0 +1,5 @@
+C:\Users\Liviu\Desktop\NativeScriptFirebaseML\endava-ng-ml\platforms\android\app\src\main\assets\app\0.js
+C:\Users\Liviu\Desktop\NativeScriptFirebaseML\endava-ng-ml\platforms\android\app\src\main\assets\app\bundle.js
+C:\Users\Liviu\Desktop\NativeScriptFirebaseML\endava-ng-ml\platforms\android\app\src\main\assets\app\starter.js
+C:\Users\Liviu\Desktop\NativeScriptFirebaseML\endava-ng-ml\platforms\android\app\src\main\assets\app\tns-java-classes.js
+C:\Users\Liviu\Desktop\NativeScriptFirebaseML\endava-ng-ml\platforms\android\app\src\main\assets\app\vendor.js
